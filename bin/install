@@ -13,6 +13,7 @@ install_python() {
 
   ASDF_CONCURRENCY="${ASDF_CONCURRENCY:-1}"
   echo "python-build $version $install_path"
+  rm -rf "$install_path"
   MAKE_OPTS="$MAKE_OPTS -j$ASDF_CONCURRENCY" TMP_DIR="$tmp_download_dir" $python_build $version $install_path
   echo "Cleaning up"
   rm -rf "$tmp_download_dir"
